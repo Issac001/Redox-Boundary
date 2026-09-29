@@ -1,0 +1,22 @@
+# Collaborator data and generated outputs stay local.
+/data/*
+!/data/README.md
+/results*/
+/figures*/
+/validation/
+/.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+*.xlsx
+*.xls
+*.zip
+*.log
+*.aux
+*.out
+*.synctex.gz
+.env
+.env.*
+
+# Private numerical baselines are used only for local verification.
+/reference/

@@ -1,0 +1,58 @@
+{
+  "data": "data/Whole3.1.xlsx",
+  "cases": [
+    "1",
+    "2",
+    "3.1",
+    "3.2",
+    "3.3"
+  ],
+  "thresholds_mV": [
+    0,
+    200,
+    400
+  ],
+  "interval_sigmas_mV": [
+    10,
+    25,
+    50
+  ],
+  "ridge_alphas": [
+    0.1,
+    1,
+    10,
+    100
+  ],
+  "primary_case": "3.3",
+  "numerical_validation": {
+    "seed": 20260923,
+    "n_localization": 500
+  },
+  "folds": [
+    {
+      "case": "3.2",
+      "fold": "C3",
+      "train_end": 1,
+      "cal_end": 2,
+      "test_end": 3,
+      "role": "primary"
+    },
+    {
+      "case": "3.3",
+      "fold": "C4",
+      "train_end": 2,
+      "cal_end": 3,
+      "test_end": 4,
+      "role": "primary"
+    },
+    {
+      "case": "3.3",
+      "fold": "C5",
+      "train_end": 3,
+      "cal_end": 4,
+      "test_end": 5,
+      "role": "primary"
+    }
+  ],
+  "model_grid_reference": "code/shared/boundary_model.py: b = 15..90 cm by 1 cm; w = 1,2,3,5,8,12,18 cm"
+}
