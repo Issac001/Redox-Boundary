@@ -23,7 +23,8 @@ from scipy.special import expit
 sys.path.insert(0, str(HERE / "shared"))
 from core import load_profiles  # noqa: E402
 from plot_boundary_study import (  # noqa: E402
-    boolean, grid_resolution_diagnostic, localization_validation,
+    COLORS, CHEMICAL_STYLES, boolean, center_flags, fixed_threshold_diagnostic,
+    grid_resolution_diagnostic, localization_validation,
     observed_boundaries, save_figure, setup,
 )
 
@@ -57,32 +58,41 @@ def main(argv=None, *, font_language="auto", font=None) -> None:
     if not np.isclose(reconstructed_sse, sample.sse, rtol=1e-8, atol=1e-6):
         raise ValueError("Displayed curve does not reproduce the saved fit")
 
-    fig, axes = plt.subplots(1, 2, figsize=(12.4, 4.6), layout="constrained")
+    fig, axes = plt.subplots(1, 2, figsize=(6.8, 3.8), layout="constrained")
     ax = axes[0]
-    ax.plot(grid, curve, color="#b20b2d", linewidth=2.5, label="One-transition fit")
-    ax.scatter(depth, eh, color="#1b3553", s=38, zorder=3, label="Observed Eh")
-    ax.axvline(b, color="#b20b2d", linestyle="--", alpha=.65)
-    ax.set(xlabel="Depth below column top (cm)", ylabel="Eh (mV)",
+    ax.axhspan(sample.b_low_working25, sample.b_high_working25,
+               color=COLORS["interval"], alpha=.55)
+    ax.plot(curve, grid, color=COLORS["center"], linewidth=1.3, label="One-transition fit")
+    ax.scatter(eh, depth, color=COLORS["observed"], s=16, zorder=3, label="Observed Eh")
+    ax.axhline(b, color=COLORS["center"], linestyle="--", linewidth=.8)
+    ax.set(xlabel="Eh (mV)", ylabel="Depth below column top (cm)", ylim=(98, 7),
            title=f"Observed profile at day {sample.Time:.2f}: center = {b:.0f} cm")
     ax.legend(frameon=False, loc="lower left")
-    ax.grid(alpha=.18)
 
     ax = axes[1]
-    supported = boolean(one.supported_shape)
-    ax.plot(one.Time, one.b, color="#8e9aa8", linewidth=1, alpha=.85)
+    supported, width_edge = center_flags(one)
+    ax.fill_between(one.Time.to_numpy(), one.b_low_working25.to_numpy(),
+                    one.b_high_working25.to_numpy(), color=COLORS["interval"], alpha=.55)
+    ax.plot(one.Time, one.b, color=COLORS["center"], linewidth=.85)
     ax.scatter(one.loc[~supported, "Time"], one.loc[~supported, "b"],
-               facecolors="white", edgecolors="#7d8996", s=32, label="Fails shape rule", zorder=3)
+               color=COLORS["warning"], marker="x", linewidths=.75, s=17,
+               label="Fails center rule", zorder=5)
     ax.scatter(one.loc[supported, "Time"], one.loc[supported, "b"],
-               color="#b20b2d", s=38, label="Passes shape rule", zorder=4)
-    ax.axhline(one.b.median(), color="#b20b2d", linestyle=":", alpha=.7,
+               color=COLORS["center"], s=14, label="Passes center rule", zorder=3)
+    ax.scatter(one.loc[width_edge, "Time"], one.loc[width_edge, "b"],
+               facecolors="white", edgecolors=COLORS["center"], marker="s", linewidths=.65,
+               s=17, label="Width at search limit", zorder=4)
+    ax.axhline(one.b.median(), color=COLORS["step"], linestyle=":", linewidth=.8,
                label=f"Median = {one.b.median():.0f} cm")
     ax.set(xlabel=f"Time within Case {case} (days)", ylabel="Center below column top (cm)",
-           title=f"Independent fits: {int(supported.sum())}/{len(one)} pass shape rule")
+           title=f"Independent fits: {int(supported.sum())}/{len(one)} pass center rule")
     ax.invert_yaxis()
-    ax.grid(alpha=.18)
-    ax.legend(frameon=False, fontsize=9, loc="lower right")
+    ax.grid(axis="y", alpha=.12, linewidth=.5)
+    ax.legend(frameon=False, loc="lower right")
 
-    fig.suptitle(f"One statistical Eh transition in Case {case}", fontsize=15, fontweight="bold")
+    fig._paper_info = {"case": case, "day": float(sample.Time), "center": b,
+                       "supported": int(supported.sum()), "n": len(one),
+                       "median": float(one.b.median())}
     args.out.mkdir(parents=True, exist_ok=True)
     paths = save_figure(fig, args.out, "one_Eh_transition")
 
@@ -91,8 +101,8 @@ def main(argv=None, *, font_language="auto", font=None) -> None:
              if fold["case"] == case and fold["role"] == "primary"]
     metrics = metrics[(metrics.case == case) & ~boolean(metrics.include_95cm)
                       & metrics.fold.isin(folds)]
-    fig, axes = plt.subplots(1, len(folds), figsize=(5.7 * len(folds), 4.2),
-                             sharey=True, squeeze=False, layout="constrained")
+    fig, axes = plt.subplots(1, len(folds), figsize=(3.4 * len(folds), 3.0),
+                             sharex=True, sharey=True, squeeze=False, layout="constrained")
     axes = axes.ravel()
     markers = ["NO3", "NH4", "Fe", "Mn"]
     for ax, fold in zip(axes, folds):
@@ -101,45 +111,44 @@ def main(argv=None, *, font_language="auto", font=None) -> None:
         y = np.arange(len(markers))
         base = table.loc[markers, "depth_water"]
         for offset, model, label, color in [
-            (-.12, "plus_Eh", "Add current Eh", "#345e93"),
-            (.12, "boundary_sigmoid", "Add transition features", "#b20b2d"),
+            (-.12, "plus_Eh", "Add current Eh", COLORS["baseline"]),
+            (.12, "boundary_sigmoid", "Add transition features", COLORS["center"]),
         ]:
             percent = 100 * (table.loc[markers, model] / base - 1)
-            ax.scatter(percent, y + offset, s=53, color=color, label=label, zorder=3)
+            ax.scatter(percent, y + offset, s=23, color=color,
+                       marker="s" if model == "plus_Eh" else "o", label=label, zorder=3)
         ax.axvline(0, color="black", linewidth=.8)
-        ax.set(yticks=y, yticklabels=markers, xlabel="Change in log1p-RMSE vs depth + water (%)",
+        ax.set(yticks=y, yticklabels=["NO$_3$", "NH$_4$", "Fe", "Mn"], xlabel="Change in log1p-RMSE vs depth + water (%)",
                title=f"Case {case} / {fold}: {int(part.n_times.iloc[0])} chemical times")
-        ax.grid(axis="x", alpha=.2)
+        ax.grid(axis="x", alpha=.12, linewidth=.5)
     axes[0].invert_yaxis()  # Invert the shared axis once, rather than once per panel.
-    axes[-1].legend(frameon=False, fontsize=9, loc="lower right")
-    fig.suptitle("Forward-time chemical prediction check", fontsize=15, fontweight="bold")
+    axes[-1].legend(frameon=False, loc="lower right")
     paths.extend(save_figure(fig, args.out, "chemical_prediction"))
 
     centers = pd.read_csv(args.results / "B3_chemical_transition_centers.csv", dtype={"case": str})
     centers = centers[centers.case.eq(case)]
     shared = pd.read_csv(args.results / "B3_shared_transition_diagnostic.csv", dtype={"case": str})
     shared = shared[shared.case.eq(case)].sort_values("time_day")
-    fig, ax = plt.subplots(figsize=(9.8, 4.5), layout="constrained")
-    ax.plot(one.Time, one.b, color="#657789", linewidth=1.3, label="Eh center (B2)")
-    styles = [("NO3", "#345e93", "^"), ("NH4", "#008478", "s"),
-              ("Fe", "#8b5999", "D"), ("Mn", "#bc7428", "o")]
-    for marker, color, shape in styles:
+    fig, ax = plt.subplots(figsize=(6.8, 3.7), layout="constrained")
+    ax.plot(one.Time, one.b, color=COLORS["center"], linewidth=1.15, label="Eh center (B2)")
+    for marker, color, shape in CHEMICAL_STYLES:
         part = centers[centers.analyte.eq(marker)]
         edge = boolean(part.grid_edge)
-        ax.scatter(part.time_day, part.b, s=43, color=color, marker=shape,
+        ax.scatter(part.time_day, part.b, s=24, color=color, marker=shape,
                    label=f"{marker} descriptive center", zorder=3)
-        ax.scatter(part.loc[edge, "time_day"], part.loc[edge, "b"], s=70,
-                   marker="x", color="#222222", linewidths=1, zorder=4)
+        ax.scatter(part.loc[edge, "time_day"], part.loc[edge, "b"], s=30,
+                   marker="x", color=COLORS["observed"], linewidths=.6, zorder=4)
     ax.scatter([], [], marker="x", color="#222222", label="Position/width at search-grid edge")
-    ax.plot(shared.time_day, shared.common_b, color="#b20b2d", linestyle="--",
-            linewidth=1.5, label="Shared-fit compromise")
+    ax.plot(shared.time_day, shared.common_b, color=COLORS["shared"], linestyle="--",
+            linewidth=1.0, label="Shared-fit compromise")
     ax.set(xlabel=f"Time within Case {case} (days)", ylabel="Center below column top (cm)",
            title="Chemical transition locations: descriptive comparison")
     ax.invert_yaxis()
-    ax.grid(alpha=.18)
+    ax.grid(axis="y", alpha=.12, linewidth=.5)
     ax.legend(frameon=False, fontsize=8, ncol=3, loc="lower center")
     paths.extend(save_figure(fig, args.out, "chemical_centers_descriptive"))
     paths.extend(observed_boundaries(data, args.out, fits))
+    paths.extend(fixed_threshold_diagnostic(data, cfg, args.results, args.out))
     if not args.skip_numerical_validation:
         paths.extend(localization_validation(args.results, args.out))
         paths.extend(grid_resolution_diagnostic(args.results, args.out))

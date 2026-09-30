@@ -12,6 +12,32 @@ from sklearn.preprocessing import StandardScaler
 from core import crossings
 from boundary_model import TransitionGrid, fit_step
 
+CENTER_RULE_VERSION = "2026-09-30-width-separate"
+
+
+def center_diagnostics(fits):
+    """Classify saved sigmoid fits without changing their numerical estimates.
+
+    ``supported_shape`` retains the legacy joint position/width rule. The
+    current ``supported_center`` removes only the width-grid-edge veto;
+    ``width_grid_edge`` remains an independent width-resolution diagnostic.
+    These operational labels are not calibrated accuracy probabilities.
+    """
+    edges = {}
+    for name in ("grid_edge", "b_grid_edge", "width_grid_edge"):
+        parsed = fits[name].astype(str).str.lower().map({"true": True, "false": False})
+        if parsed.isna().any():
+            raise ValueError(f"Missing or invalid sigmoid boolean values in {name}")
+        edges[name] = parsed.astype(bool)
+    if not edges["grid_edge"].equals(edges["b_grid_edge"] | edges["width_grid_edge"]):
+        raise ValueError("Combined grid-edge flags disagree with position/width flags")
+    common = (fits.amplitude.ge(100) & fits.delta_aicc_vs_no_transition.lt(0)
+              & fits.b_interval_width25.le(20))
+    return pd.DataFrame({
+        "supported_shape": common & ~edges["grid_edge"],
+        "supported_center": common & ~edges["b_grid_edge"],
+    }, index=fits.index)
+
 
 def write_json(path, obj):
     path.write_text(json.dumps(obj, ensure_ascii=False, indent=2,
@@ -91,7 +117,8 @@ def estimate_boundaries(data, cfg, out):
             record["b_interval_width25"]=interval["b_high"]-interval["b_low"]
             record["working_interval_components"]=interval["support_components"]
             record["working_interval_truncated"]=interval["grid_truncated"]
-            record["supported_shape"]=(record.amplitude>=100)&(record.delta_aicc_vs_no_transition<0)&(record.b_interval_width25<=20)&~record.grid_edge
+            for key, values in center_diagnostics(record).items():
+                record[key] = values
         if kind=="step":
             for key in ["lower_gap","upper_gap"]:
                 if key in fit: record[key]=fit[key]

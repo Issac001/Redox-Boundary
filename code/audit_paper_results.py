@@ -24,6 +24,7 @@ ROOT = HERE.parent
 sys.path.insert(0, str(HERE / "shared"))
 from boundary_model import TransitionGrid  # noqa: E402
 from core import load_profiles  # noqa: E402
+from run_boundary_study import CENTER_RULE_VERSION, center_diagnostics  # noqa: E402
 
 
 def _json_safe(value):
@@ -92,21 +93,25 @@ def _case_one_lodo(data, saved):
             "depth_attribution": details}
 
 
-def _shape_rules(fits):
-    """Complement the same four operational rules used by estimate_boundaries."""
+def _shape_rules(fits, *, current_center=False):
+    """Audit either legacy joint rules or current center-only edge criteria."""
+    edge_name = "position_grid_edge" if current_center else "grid_edge"
     failures = pd.DataFrame({
         "amplitude_below_100": ~fits.amplitude.ge(100),
         "aicc_not_better": ~fits.delta_aicc_vs_no_transition.lt(0),
         "interval_wider_than_20": ~fits.b_interval_width25.le(20),
-        "grid_edge": _boolean(fits.grid_edge),
+        edge_name: _boolean(fits.b_grid_edge if current_center else fits.grid_edge),
     })
     failed_count = failures.sum(axis=1)
     all_pass = failed_count.eq(0)
-    if not np.array_equal(all_pass.to_numpy(), _boolean(fits.supported_shape).to_numpy()):
-        raise ValueError("Recomputed shape rules differ from saved shape markers")
+    marker = "supported_center" if current_center else "supported_shape"
+    if marker not in fits:
+        raise ValueError(f"Missing {marker}; first run run_one_transition.py --reclassify-from")
+    if not np.array_equal(all_pass.to_numpy(), _boolean(fits[marker]).to_numpy()):
+        raise ValueError(f"Recomputed rules differ from saved {marker} markers")
     patterns = failures.apply(
         lambda row: ",".join(row.index[row]) or "all_pass", axis=1)
-    return {
+    summary = {
         "n": len(fits), "n_all_pass": int(all_pass.sum()),
         "n_any_failed": int((~all_pass).sum()),
         "individual_failure_counts": failures.sum().astype(int).to_dict(),
@@ -120,6 +125,16 @@ def _shape_rules(fits):
         "n_width_grid_edge": int(_boolean(fits.width_grid_edge).sum()),
         "n_width_at_lower_grid_bound": int(fits.w.eq(1).sum()),
     }
+    if current_center:
+        flags = center_diagnostics(fits)
+        summary.update({
+            "rule_version": CENTER_RULE_VERSION,
+            "n_legacy_joint_pass": int(flags.supported_shape.sum()),
+            "n_new_pass_from_width_separation": int((all_pass & ~flags.supported_shape).sum()),
+            "n_pass_with_width_grid_edge": int((all_pass & _boolean(fits.width_grid_edge)).sum()),
+            "interpretation": "Operational diagnostic counts, not calibrated localization accuracy",
+        })
+    return summary
 
 
 def audit(data, config, results, out):
@@ -218,6 +233,9 @@ def audit(data, config, results, out):
         "threshold_crossing_counts": read("B1_threshold_audit.csv").to_dict("records"),
         "case_summary": read("case_summary.csv").to_dict("records"),
         "case33_shape_rules": _shape_rules(fits[fits.Case.eq("3.3")]),
+        "center_rule_version": CENTER_RULE_VERSION,
+        "center_rules_by_case": {case: _shape_rules(part, current_center=True)
+                                 for case, part in fits.groupby("Case")},
         "n_width_at_lower_grid_bound_by_case": fits.groupby("Case").w.apply(lambda values: int(values.eq(1).sum())).to_dict(),
         "median_fitted_profile_rmse_mV_by_case": fits.groupby("Case").fit_rmse_mV.median().to_dict(),
         "chemical_coverage_main_depths": coverage,
