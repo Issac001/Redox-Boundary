@@ -1,0 +1,22 @@
+{
+  "manuscript_revision": "2026-11-11",
+  "seed": 20261018,
+  "n_replicates": 500,
+  "cases": ["3.1", "3.2", "3.3"],
+  "expected_counts": {"3.1": 77, "3.2": 78, "3.3": 68},
+  "depth": [10, 20, 30, 40, 50, 60, 70, 80, 90, 95],
+  "model": {
+    "center_bounds": [20, 90],
+    "grid_step": 0.1,
+    "width_grid": [1, 2, 3, 5, 8, 12, 18],
+    "min_side": 2,
+    "sigma": 25,
+    "level": 0.95,
+    "prior_mean": 0,
+    "prior_sd": 500
+  },
+  "inference_scope": "Independent profiles; Bayesian comparator conditional on exactly one descending step.",
+  "real_sigma": "Working assumption in mV, not an instrument-calibrated standard deviation.",
+  "chemical_scope": "NO3, NH4, Fe, Mn at z <= 90 cm; at least five observed depths; log1p and separate sigmoid fits.",
+  "width_definition": "Logistic scale w in cm; 10-90 percent transition span is 2*log(9)*w."
+}

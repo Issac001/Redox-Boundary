@@ -1,0 +1,1592 @@
+{
+  "center_diagnostics": [
+    {
+      "Case": "3.1",
+      "n": 77,
+      "pass_current": 76,
+      "fail_current": 1,
+      "width_1": 65,
+      "width_18": 0,
+      "center_min": 51.2,
+      "center_median": 56.0,
+      "center_max": 85.8
+    },
+    {
+      "Case": "3.2",
+      "n": 78,
+      "pass_current": 78,
+      "fail_current": 0,
+      "width_1": 47,
+      "width_18": 0,
+      "center_min": 52.1,
+      "center_median": 54.9,
+      "center_max": 77.2
+    },
+    {
+      "Case": "3.3",
+      "n": 68,
+      "pass_current": 68,
+      "fail_current": 0,
+      "width_1": 36,
+      "width_18": 0,
+      "center_min": 55.2,
+      "center_median": 59.0,
+      "center_max": 69.9
+    },
+    {
+      "Case": "ALL",
+      "n": 223,
+      "pass_current": 222,
+      "fail_current": 1,
+      "width_1": 148,
+      "width_18": 0,
+      "center_min": 51.2,
+      "center_median": 57.2,
+      "center_max": 85.8
+    }
+  ],
+  "lodo_regions": [
+    {
+      "Case": "3.1",
+      "method": "bayes_step",
+      "region": "all",
+      "n_profiles": 77,
+      "n_predictions": 770,
+      "rmse_mv": 223.15793346038737,
+      "mae_mv": 168.72967450769556
+    },
+    {
+      "Case": "3.1",
+      "method": "bayes_step",
+      "region": "interior",
+      "n_profiles": 77,
+      "n_predictions": 616,
+      "rmse_mv": 245.8477021469598,
+      "mae_mv": 192.5071197841881
+    },
+    {
+      "Case": "3.1",
+      "method": "bayes_step",
+      "region": "endpoints",
+      "n_profiles": 77,
+      "n_predictions": 154,
+      "rmse_mv": 85.04672673179302,
+      "mae_mv": 73.61989340172569
+    },
+    {
+      "Case": "3.1",
+      "method": "sigmoid",
+      "region": "all",
+      "n_profiles": 77,
+      "n_predictions": 770,
+      "rmse_mv": 242.79797081262905,
+      "mae_mv": 176.0946767989964
+    },
+    {
+      "Case": "3.1",
+      "method": "sigmoid",
+      "region": "interior",
+      "n_profiles": 77,
+      "n_predictions": 616,
+      "rmse_mv": 268.06399248916813,
+      "mae_mv": 202.41132136250351
+    },
+    {
+      "Case": "3.1",
+      "method": "sigmoid",
+      "region": "endpoints",
+      "n_profiles": 77,
+      "n_predictions": 154,
+      "rmse_mv": 85.56317476999182,
+      "mae_mv": 70.8280985449678
+    },
+    {
+      "Case": "3.1",
+      "method": "step",
+      "region": "all",
+      "n_profiles": 77,
+      "n_predictions": 770,
+      "rmse_mv": 264.64425524973007,
+      "mae_mv": 183.01370052566483
+    },
+    {
+      "Case": "3.1",
+      "method": "step",
+      "region": "interior",
+      "n_profiles": 77,
+      "n_predictions": 616,
+      "rmse_mv": 292.8118626252117,
+      "mae_mv": 210.3714898345702
+    },
+    {
+      "Case": "3.1",
+      "method": "step",
+      "region": "endpoints",
+      "n_profiles": 77,
+      "n_predictions": 154,
+      "rmse_mv": 85.01624319645097,
+      "mae_mv": 73.5825432900433
+    },
+    {
+      "Case": "3.2",
+      "method": "bayes_step",
+      "region": "all",
+      "n_profiles": 78,
+      "n_predictions": 780,
+      "rmse_mv": 208.3848471736712,
+      "mae_mv": 160.09449166563812
+    },
+    {
+      "Case": "3.2",
+      "method": "bayes_step",
+      "region": "interior",
+      "n_profiles": 78,
+      "n_predictions": 624,
+      "rmse_mv": 228.4653537028787,
+      "mae_mv": 183.11966975789915
+    },
+    {
+      "Case": "3.2",
+      "method": "bayes_step",
+      "region": "endpoints",
+      "n_profiles": 78,
+      "n_predictions": 156,
+      "rmse_mv": 91.29924034539157,
+      "mae_mv": 67.99377929659396
+    },
+    {
+      "Case": "3.2",
+      "method": "sigmoid",
+      "region": "all",
+      "n_profiles": 78,
+      "n_predictions": 780,
+      "rmse_mv": 235.08118459349097,
+      "mae_mv": 159.71719073807657
+    },
+    {
+      "Case": "3.2",
+      "method": "sigmoid",
+      "region": "interior",
+      "n_profiles": 78,
+      "n_predictions": 624,
+      "rmse_mv": 259.96663257406004,
+      "mae_mv": 186.969077410675
+    },
+    {
+      "Case": "3.2",
+      "method": "sigmoid",
+      "region": "endpoints",
+      "n_profiles": 78,
+      "n_predictions": 156,
+      "rmse_mv": 77.36418125857412,
+      "mae_mv": 50.70964404768292
+    },
+    {
+      "Case": "3.2",
+      "method": "step",
+      "region": "all",
+      "n_profiles": 78,
+      "n_predictions": 780,
+      "rmse_mv": 267.0207919059545,
+      "mae_mv": 180.1737241452992
+    },
+    {
+      "Case": "3.2",
+      "method": "step",
+      "region": "interior",
+      "n_profiles": 78,
+      "n_predictions": 624,
+      "rmse_mv": 295.03515336633495,
+      "mae_mv": 208.2485836004274
+    },
+    {
+      "Case": "3.2",
+      "method": "step",
+      "region": "endpoints",
+      "n_profiles": 78,
+      "n_predictions": 156,
+      "rmse_mv": 91.20060121966492,
+      "mae_mv": 67.87428632478633
+    },
+    {
+      "Case": "3.3",
+      "method": "bayes_step",
+      "region": "all",
+      "n_profiles": 68,
+      "n_predictions": 680,
+      "rmse_mv": 169.84093937773147,
+      "mae_mv": 117.73308477176428
+    },
+    {
+      "Case": "3.3",
+      "method": "bayes_step",
+      "region": "interior",
+      "n_profiles": 68,
+      "n_predictions": 544,
+      "rmse_mv": 185.9313672352781,
+      "mae_mv": 131.41957757245714
+    },
+    {
+      "Case": "3.3",
+      "method": "bayes_step",
+      "region": "endpoints",
+      "n_profiles": 68,
+      "n_predictions": 136,
+      "rmse_mv": 77.12217680817861,
+      "mae_mv": 62.98711356899286
+    },
+    {
+      "Case": "3.3",
+      "method": "sigmoid",
+      "region": "all",
+      "n_profiles": 68,
+      "n_predictions": 680,
+      "rmse_mv": 196.85652170218555,
+      "mae_mv": 113.6221343552795
+    },
+    {
+      "Case": "3.3",
+      "method": "sigmoid",
+      "region": "interior",
+      "n_profiles": 68,
+      "n_predictions": 544,
+      "rmse_mv": 218.75987228552805,
+      "mae_mv": 131.1899459250421
+    },
+    {
+      "Case": "3.3",
+      "method": "sigmoid",
+      "region": "endpoints",
+      "n_profiles": 68,
+      "n_predictions": 136,
+      "rmse_mv": 48.36242129890889,
+      "mae_mv": 43.35088807622907
+    },
+    {
+      "Case": "3.3",
+      "method": "step",
+      "region": "all",
+      "n_profiles": 68,
+      "n_predictions": 680,
+      "rmse_mv": 279.08221320127103,
+      "mae_mv": 160.80044019607843
+    },
+    {
+      "Case": "3.3",
+      "method": "step",
+      "region": "interior",
+      "n_profiles": 68,
+      "n_predictions": 544,
+      "rmse_mv": 309.63205822436487,
+      "mae_mv": 185.23328523284312
+    },
+    {
+      "Case": "3.3",
+      "method": "step",
+      "region": "endpoints",
+      "n_profiles": 68,
+      "n_predictions": 136,
+      "rmse_mv": 77.11266242046443,
+      "mae_mv": 63.069060049019605
+    },
+    {
+      "Case": "ALL",
+      "method": "bayes_step",
+      "region": "all",
+      "n_profiles": 223,
+      "n_predictions": 2230,
+      "rmse_mv": 202.9289343433645,
+      "mae_mv": 150.15876704705067
+    },
+    {
+      "Case": "ALL",
+      "method": "bayes_step",
+      "region": "interior",
+      "n_profiles": 223,
+      "n_predictions": 1784,
+      "rmse_mv": 222.86432269581735,
+      "mae_mv": 170.59602573733497
+    },
+    {
+      "Case": "ALL",
+      "method": "bayes_step",
+      "region": "endpoints",
+      "n_profiles": 223,
+      "n_predictions": 446,
+      "rmse_mv": 85.01021495094561,
+      "mae_mv": 68.40973228591355
+    },
+    {
+      "Case": "ALL",
+      "method": "sigmoid",
+      "region": "all",
+      "n_profiles": 223,
+      "n_predictions": 2230,
+      "rmse_mv": 226.94018371090868,
+      "mae_mv": 151.31630550337087
+    },
+    {
+      "Case": "ALL",
+      "method": "sigmoid",
+      "region": "interior",
+      "n_profiles": 223,
+      "n_predictions": 1784,
+      "rmse_mv": 251.0849647567712,
+      "mae_mv": 175.29226953295196
+    },
+    {
+      "Case": "ALL",
+      "method": "sigmoid",
+      "region": "endpoints",
+      "n_profiles": 223,
+      "n_predictions": 446,
+      "rmse_mv": 73.03832422823473,
+      "mae_mv": 55.412449385046486
+    },
+    {
+      "Case": "ALL",
+      "method": "step",
+      "region": "all",
+      "n_profiles": 223,
+      "n_predictions": 2230,
+      "rmse_mv": 269.94878119849176,
+      "mae_mv": 175.24679532351058
+    },
+    {
+      "Case": "ALL",
+      "method": "step",
+      "region": "interior",
+      "n_profiles": 223,
+      "n_predictions": 1784,
+      "rmse_mv": 298.80742952000696,
+      "mae_mv": 201.96348714766177
+    },
+    {
+      "Case": "ALL",
+      "method": "step",
+      "region": "endpoints",
+      "n_profiles": 223,
+      "n_predictions": 446,
+      "rmse_mv": 84.96000592832044,
+      "mae_mv": 68.38002802690582
+    }
+  ],
+  "lodo_by_depth": [
+    {
+      "Case": "3.1",
+      "method": "bayes_step",
+      "depth_cm": 10.0,
+      "n_profiles": 77,
+      "rmse_mv": 51.82823144634543
+    },
+    {
+      "Case": "3.1",
+      "method": "bayes_step",
+      "depth_cm": 20.0,
+      "n_profiles": 77,
+      "rmse_mv": 66.70644823613097
+    },
+    {
+      "Case": "3.1",
+      "method": "bayes_step",
+      "depth_cm": 30.0,
+      "n_profiles": 77,
+      "rmse_mv": 131.03045457762025
+    },
+    {
+      "Case": "3.1",
+      "method": "bayes_step",
+      "depth_cm": 40.0,
+      "n_profiles": 77,
+      "rmse_mv": 59.17986567008152
+    },
+    {
+      "Case": "3.1",
+      "method": "bayes_step",
+      "depth_cm": 50.0,
+      "n_profiles": 77,
+      "rmse_mv": 365.0813261287734
+    },
+    {
+      "Case": "3.1",
+      "method": "bayes_step",
+      "depth_cm": 60.0,
+      "n_profiles": 77,
+      "rmse_mv": 421.0591780840252
+    },
+    {
+      "Case": "3.1",
+      "method": "bayes_step",
+      "depth_cm": 70.0,
+      "n_profiles": 77,
+      "rmse_mv": 321.34551043881015
+    },
+    {
+      "Case": "3.1",
+      "method": "bayes_step",
+      "depth_cm": 80.0,
+      "n_profiles": 77,
+      "rmse_mv": 160.57324220816758
+    },
+    {
+      "Case": "3.1",
+      "method": "bayes_step",
+      "depth_cm": 90.0,
+      "n_profiles": 77,
+      "rmse_mv": 137.06146473219562
+    },
+    {
+      "Case": "3.1",
+      "method": "bayes_step",
+      "depth_cm": 95.0,
+      "n_profiles": 77,
+      "rmse_mv": 108.53444559552788
+    },
+    {
+      "Case": "3.1",
+      "method": "sigmoid",
+      "depth_cm": 10.0,
+      "n_profiles": 77,
+      "rmse_mv": 44.22048980052028
+    },
+    {
+      "Case": "3.1",
+      "method": "sigmoid",
+      "depth_cm": 20.0,
+      "n_profiles": 77,
+      "rmse_mv": 53.7855837089892
+    },
+    {
+      "Case": "3.1",
+      "method": "sigmoid",
+      "depth_cm": 30.0,
+      "n_profiles": 77,
+      "rmse_mv": 143.92280722893614
+    },
+    {
+      "Case": "3.1",
+      "method": "sigmoid",
+      "depth_cm": 40.0,
+      "n_profiles": 77,
+      "rmse_mv": 57.65512837608431
+    },
+    {
+      "Case": "3.1",
+      "method": "sigmoid",
+      "depth_cm": 50.0,
+      "n_profiles": 77,
+      "rmse_mv": 339.79630210280277
+    },
+    {
+      "Case": "3.1",
+      "method": "sigmoid",
+      "depth_cm": 60.0,
+      "n_profiles": 77,
+      "rmse_mv": 516.870574685877
+    },
+    {
+      "Case": "3.1",
+      "method": "sigmoid",
+      "depth_cm": 70.0,
+      "n_profiles": 77,
+      "rmse_mv": 349.10311458605327
+    },
+    {
+      "Case": "3.1",
+      "method": "sigmoid",
+      "depth_cm": 80.0,
+      "n_profiles": 77,
+      "rmse_mv": 161.45629007612186
+    },
+    {
+      "Case": "3.1",
+      "method": "sigmoid",
+      "depth_cm": 90.0,
+      "n_profiles": 77,
+      "rmse_mv": 131.82495648605155
+    },
+    {
+      "Case": "3.1",
+      "method": "sigmoid",
+      "depth_cm": 95.0,
+      "n_profiles": 77,
+      "rmse_mv": 112.63508350084538
+    },
+    {
+      "Case": "3.1",
+      "method": "step",
+      "depth_cm": 10.0,
+      "n_profiles": 77,
+      "rmse_mv": 51.9437428884618
+    },
+    {
+      "Case": "3.1",
+      "method": "step",
+      "depth_cm": 20.0,
+      "n_profiles": 77,
+      "rmse_mv": 66.80727330401088
+    },
+    {
+      "Case": "3.1",
+      "method": "step",
+      "depth_cm": 30.0,
+      "n_profiles": 77,
+      "rmse_mv": 131.24696959491203
+    },
+    {
+      "Case": "3.1",
+      "method": "step",
+      "depth_cm": 40.0,
+      "n_profiles": 77,
+      "rmse_mv": 59.43873111267898
+    },
+    {
+      "Case": "3.1",
+      "method": "step",
+      "depth_cm": 50.0,
+      "n_profiles": 77,
+      "rmse_mv": 601.2038575142378
+    },
+    {
+      "Case": "3.1",
+      "method": "step",
+      "depth_cm": 60.0,
+      "n_profiles": 77,
+      "rmse_mv": 370.14132052900266
+    },
+    {
+      "Case": "3.1",
+      "method": "step",
+      "depth_cm": 70.0,
+      "n_profiles": 77,
+      "rmse_mv": 354.2694582621402
+    },
+    {
+      "Case": "3.1",
+      "method": "step",
+      "depth_cm": 80.0,
+      "n_profiles": 77,
+      "rmse_mv": 133.79704221658747
+    },
+    {
+      "Case": "3.1",
+      "method": "step",
+      "depth_cm": 90.0,
+      "n_profiles": 77,
+      "rmse_mv": 137.21946139562442
+    },
+    {
+      "Case": "3.1",
+      "method": "step",
+      "depth_cm": 95.0,
+      "n_profiles": 77,
+      "rmse_mv": 108.43141052856208
+    },
+    {
+      "Case": "3.2",
+      "method": "bayes_step",
+      "depth_cm": 10.0,
+      "n_profiles": 78,
+      "rmse_mv": 48.339111567247926
+    },
+    {
+      "Case": "3.2",
+      "method": "bayes_step",
+      "depth_cm": 20.0,
+      "n_profiles": 78,
+      "rmse_mv": 118.88665590266235
+    },
+    {
+      "Case": "3.2",
+      "method": "bayes_step",
+      "depth_cm": 30.0,
+      "n_profiles": 78,
+      "rmse_mv": 125.8738199336092
+    },
+    {
+      "Case": "3.2",
+      "method": "bayes_step",
+      "depth_cm": 40.0,
+      "n_profiles": 78,
+      "rmse_mv": 96.31493248344805
+    },
+    {
+      "Case": "3.2",
+      "method": "bayes_step",
+      "depth_cm": 50.0,
+      "n_profiles": 78,
+      "rmse_mv": 279.7886263433999
+    },
+    {
+      "Case": "3.2",
+      "method": "bayes_step",
+      "depth_cm": 60.0,
+      "n_profiles": 78,
+      "rmse_mv": 407.9947257197669
+    },
+    {
+      "Case": "3.2",
+      "method": "bayes_step",
+      "depth_cm": 70.0,
+      "n_profiles": 78,
+      "rmse_mv": 296.4642928833918
+    },
+    {
+      "Case": "3.2",
+      "method": "bayes_step",
+      "depth_cm": 80.0,
+      "n_profiles": 78,
+      "rmse_mv": 153.857649978802
+    },
+    {
+      "Case": "3.2",
+      "method": "bayes_step",
+      "depth_cm": 90.0,
+      "n_profiles": 78,
+      "rmse_mv": 148.36406561846573
+    },
+    {
+      "Case": "3.2",
+      "method": "bayes_step",
+      "depth_cm": 95.0,
+      "n_profiles": 78,
+      "rmse_mv": 119.72649192296709
+    },
+    {
+      "Case": "3.2",
+      "method": "sigmoid",
+      "depth_cm": 10.0,
+      "n_profiles": 78,
+      "rmse_mv": 31.397680578229338
+    },
+    {
+      "Case": "3.2",
+      "method": "sigmoid",
+      "depth_cm": 20.0,
+      "n_profiles": 78,
+      "rmse_mv": 96.50028090373064
+    },
+    {
+      "Case": "3.2",
+      "method": "sigmoid",
+      "depth_cm": 30.0,
+      "n_profiles": 78,
+      "rmse_mv": 149.030956044915
+    },
+    {
+      "Case": "3.2",
+      "method": "sigmoid",
+      "depth_cm": 40.0,
+      "n_profiles": 78,
+      "rmse_mv": 92.4555361744455
+    },
+    {
+      "Case": "3.2",
+      "method": "sigmoid",
+      "depth_cm": 50.0,
+      "n_profiles": 78,
+      "rmse_mv": 232.83926220533573
+    },
+    {
+      "Case": "3.2",
+      "method": "sigmoid",
+      "depth_cm": 60.0,
+      "n_profiles": 78,
+      "rmse_mv": 541.2608880546654
+    },
+    {
+      "Case": "3.2",
+      "method": "sigmoid",
+      "depth_cm": 70.0,
+      "n_profiles": 78,
+      "rmse_mv": 356.9588529206729
+    },
+    {
+      "Case": "3.2",
+      "method": "sigmoid",
+      "depth_cm": 80.0,
+      "n_profiles": 78,
+      "rmse_mv": 117.19597423855556
+    },
+    {
+      "Case": "3.2",
+      "method": "sigmoid",
+      "depth_cm": 90.0,
+      "n_profiles": 78,
+      "rmse_mv": 110.71880668382082
+    },
+    {
+      "Case": "3.2",
+      "method": "sigmoid",
+      "depth_cm": 95.0,
+      "n_profiles": 78,
+      "rmse_mv": 104.80753187594154
+    },
+    {
+      "Case": "3.2",
+      "method": "step",
+      "depth_cm": 10.0,
+      "n_profiles": 78,
+      "rmse_mv": 48.21504351766055
+    },
+    {
+      "Case": "3.2",
+      "method": "step",
+      "depth_cm": 20.0,
+      "n_profiles": 78,
+      "rmse_mv": 119.93524314197462
+    },
+    {
+      "Case": "3.2",
+      "method": "step",
+      "depth_cm": 30.0,
+      "n_profiles": 78,
+      "rmse_mv": 125.7373889723571
+    },
+    {
+      "Case": "3.2",
+      "method": "step",
+      "depth_cm": 40.0,
+      "n_profiles": 78,
+      "rmse_mv": 95.65402117264487
+    },
+    {
+      "Case": "3.2",
+      "method": "step",
+      "depth_cm": 50.0,
+      "n_profiles": 78,
+      "rmse_mv": 583.8703383848308
+    },
+    {
+      "Case": "3.2",
+      "method": "step",
+      "depth_cm": 60.0,
+      "n_profiles": 78,
+      "rmse_mv": 399.2419198274489
+    },
+    {
+      "Case": "3.2",
+      "method": "step",
+      "depth_cm": 70.0,
+      "n_profiles": 78,
+      "rmse_mv": 345.144960005104
+    },
+    {
+      "Case": "3.2",
+      "method": "step",
+      "depth_cm": 80.0,
+      "n_profiles": 78,
+      "rmse_mv": 125.04665988458308
+    },
+    {
+      "Case": "3.2",
+      "method": "step",
+      "depth_cm": 90.0,
+      "n_profiles": 78,
+      "rmse_mv": 148.1941136389282
+    },
+    {
+      "Case": "3.2",
+      "method": "step",
+      "depth_cm": 95.0,
+      "n_profiles": 78,
+      "rmse_mv": 119.62612132910937
+    },
+    {
+      "Case": "3.3",
+      "method": "bayes_step",
+      "depth_cm": 10.0,
+      "n_profiles": 68,
+      "rmse_mv": 41.9473143289267
+    },
+    {
+      "Case": "3.3",
+      "method": "bayes_step",
+      "depth_cm": 20.0,
+      "n_profiles": 68,
+      "rmse_mv": 44.06469499683037
+    },
+    {
+      "Case": "3.3",
+      "method": "bayes_step",
+      "depth_cm": 30.0,
+      "n_profiles": 68,
+      "rmse_mv": 85.63923417620337
+    },
+    {
+      "Case": "3.3",
+      "method": "bayes_step",
+      "depth_cm": 40.0,
+      "n_profiles": 68,
+      "rmse_mv": 58.468792485052646
+    },
+    {
+      "Case": "3.3",
+      "method": "bayes_step",
+      "depth_cm": 50.0,
+      "n_profiles": 68,
+      "rmse_mv": 404.10793920907975
+    },
+    {
+      "Case": "3.3",
+      "method": "bayes_step",
+      "depth_cm": 60.0,
+      "n_profiles": 68,
+      "rmse_mv": 240.66257058279828
+    },
+    {
+      "Case": "3.3",
+      "method": "bayes_step",
+      "depth_cm": 70.0,
+      "n_profiles": 68,
+      "rmse_mv": 120.33060834607664
+    },
+    {
+      "Case": "3.3",
+      "method": "bayes_step",
+      "depth_cm": 80.0,
+      "n_profiles": 68,
+      "rmse_mv": 115.3481505992306
+    },
+    {
+      "Case": "3.3",
+      "method": "bayes_step",
+      "depth_cm": 90.0,
+      "n_profiles": 68,
+      "rmse_mv": 121.91415234827733
+    },
+    {
+      "Case": "3.3",
+      "method": "bayes_step",
+      "depth_cm": 95.0,
+      "n_profiles": 68,
+      "rmse_mv": 100.67811644967412
+    },
+    {
+      "Case": "3.3",
+      "method": "sigmoid",
+      "depth_cm": 10.0,
+      "n_profiles": 68,
+      "rmse_mv": 47.90690669126991
+    },
+    {
+      "Case": "3.3",
+      "method": "sigmoid",
+      "depth_cm": 20.0,
+      "n_profiles": 68,
+      "rmse_mv": 36.50553777579477
+    },
+    {
+      "Case": "3.3",
+      "method": "sigmoid",
+      "depth_cm": 30.0,
+      "n_profiles": 68,
+      "rmse_mv": 95.09593308108909
+    },
+    {
+      "Case": "3.3",
+      "method": "sigmoid",
+      "depth_cm": 40.0,
+      "n_profiles": 68,
+      "rmse_mv": 55.33769047893513
+    },
+    {
+      "Case": "3.3",
+      "method": "sigmoid",
+      "depth_cm": 50.0,
+      "n_profiles": 68,
+      "rmse_mv": 150.10157121857168
+    },
+    {
+      "Case": "3.3",
+      "method": "sigmoid",
+      "depth_cm": 60.0,
+      "n_profiles": 68,
+      "rmse_mv": 555.0558977382374
+    },
+    {
+      "Case": "3.3",
+      "method": "sigmoid",
+      "depth_cm": 70.0,
+      "n_profiles": 68,
+      "rmse_mv": 175.5747986598587
+    },
+    {
+      "Case": "3.3",
+      "method": "sigmoid",
+      "depth_cm": 80.0,
+      "n_profiles": 68,
+      "rmse_mv": 68.32376649775213
+    },
+    {
+      "Case": "3.3",
+      "method": "sigmoid",
+      "depth_cm": 90.0,
+      "n_profiles": 68,
+      "rmse_mv": 57.41711178268225
+    },
+    {
+      "Case": "3.3",
+      "method": "sigmoid",
+      "depth_cm": 95.0,
+      "n_profiles": 68,
+      "rmse_mv": 48.8136853665063
+    },
+    {
+      "Case": "3.3",
+      "method": "step",
+      "depth_cm": 10.0,
+      "n_profiles": 68,
+      "rmse_mv": 42.21136505868588
+    },
+    {
+      "Case": "3.3",
+      "method": "step",
+      "depth_cm": 20.0,
+      "n_profiles": 68,
+      "rmse_mv": 44.78394212732555
+    },
+    {
+      "Case": "3.3",
+      "method": "step",
+      "depth_cm": 30.0,
+      "n_profiles": 68,
+      "rmse_mv": 85.84963724552074
+    },
+    {
+      "Case": "3.3",
+      "method": "step",
+      "depth_cm": 40.0,
+      "n_profiles": 68,
+      "rmse_mv": 58.44897100737949
+    },
+    {
+      "Case": "3.3",
+      "method": "step",
+      "depth_cm": 50.0,
+      "n_profiles": 68,
+      "rmse_mv": 775.5590099457295
+    },
+    {
+      "Case": "3.3",
+      "method": "step",
+      "depth_cm": 60.0,
+      "n_profiles": 68,
+      "rmse_mv": 318.8250393498795
+    },
+    {
+      "Case": "3.3",
+      "method": "step",
+      "depth_cm": 70.0,
+      "n_profiles": 68,
+      "rmse_mv": 151.5027202937399
+    },
+    {
+      "Case": "3.3",
+      "method": "step",
+      "depth_cm": 80.0,
+      "n_profiles": 68,
+      "rmse_mv": 115.17762598421218
+    },
+    {
+      "Case": "3.3",
+      "method": "step",
+      "depth_cm": 90.0,
+      "n_profiles": 68,
+      "rmse_mv": 121.75345799756484
+    },
+    {
+      "Case": "3.3",
+      "method": "step",
+      "depth_cm": 95.0,
+      "n_profiles": 68,
+      "rmse_mv": 100.55310075292242
+    },
+    {
+      "Case": "ALL",
+      "method": "bayes_step",
+      "depth_cm": 10.0,
+      "n_profiles": 223,
+      "rmse_mv": 47.76372315272282
+    },
+    {
+      "Case": "ALL",
+      "method": "bayes_step",
+      "depth_cm": 20.0,
+      "n_profiles": 223,
+      "rmse_mv": 84.09691904741561
+    },
+    {
+      "Case": "ALL",
+      "method": "bayes_step",
+      "depth_cm": 30.0,
+      "n_profiles": 223,
+      "rmse_mv": 117.07530522409787
+    },
+    {
+      "Case": "ALL",
+      "method": "bayes_step",
+      "depth_cm": 40.0,
+      "n_profiles": 223,
+      "rmse_mv": 74.13811782906573
+    },
+    {
+      "Case": "ALL",
+      "method": "bayes_step",
+      "depth_cm": 50.0,
+      "n_profiles": 223,
+      "rmse_mv": 350.99785326827197
+    },
+    {
+      "Case": "ALL",
+      "method": "bayes_step",
+      "depth_cm": 60.0,
+      "n_profiles": 223,
+      "rmse_mv": 370.2726330555539
+    },
+    {
+      "Case": "ALL",
+      "method": "bayes_step",
+      "depth_cm": 70.0,
+      "n_profiles": 223,
+      "rmse_mv": 266.1075772746955
+    },
+    {
+      "Case": "ALL",
+      "method": "bayes_step",
+      "depth_cm": 80.0,
+      "n_profiles": 223,
+      "rmse_mv": 145.7396947250794
+    },
+    {
+      "Case": "ALL",
+      "method": "bayes_step",
+      "depth_cm": 90.0,
+      "n_profiles": 223,
+      "rmse_mv": 136.81393990784687
+    },
+    {
+      "Case": "ALL",
+      "method": "bayes_step",
+      "depth_cm": 95.0,
+      "n_profiles": 223,
+      "rmse_mv": 110.3272407096362
+    },
+    {
+      "Case": "ALL",
+      "method": "sigmoid",
+      "depth_cm": 10.0,
+      "n_profiles": 223,
+      "rmse_mv": 41.47116224583957
+    },
+    {
+      "Case": "ALL",
+      "method": "sigmoid",
+      "depth_cm": 20.0,
+      "n_profiles": 223,
+      "rmse_mv": 68.28234296591137
+    },
+    {
+      "Case": "ALL",
+      "method": "sigmoid",
+      "depth_cm": 30.0,
+      "n_profiles": 223,
+      "rmse_mv": 132.9603995498646
+    },
+    {
+      "Case": "ALL",
+      "method": "sigmoid",
+      "depth_cm": 40.0,
+      "n_profiles": 223,
+      "rmse_mv": 71.21421247778841
+    },
+    {
+      "Case": "ALL",
+      "method": "sigmoid",
+      "depth_cm": 50.0,
+      "n_profiles": 223,
+      "rmse_mv": 256.3219654635927
+    },
+    {
+      "Case": "ALL",
+      "method": "sigmoid",
+      "depth_cm": 60.0,
+      "n_profiles": 223,
+      "rmse_mv": 537.2743464010681
+    },
+    {
+      "Case": "ALL",
+      "method": "sigmoid",
+      "depth_cm": 70.0,
+      "n_profiles": 223,
+      "rmse_mv": 309.9193664772249
+    },
+    {
+      "Case": "ALL",
+      "method": "sigmoid",
+      "depth_cm": 80.0,
+      "n_profiles": 223,
+      "rmse_mv": 123.4046449422778
+    },
+    {
+      "Case": "ALL",
+      "method": "sigmoid",
+      "depth_cm": 90.0,
+      "n_profiles": 223,
+      "rmse_mv": 106.27075117960926
+    },
+    {
+      "Case": "ALL",
+      "method": "sigmoid",
+      "depth_cm": 95.0,
+      "n_profiles": 223,
+      "rmse_mv": 94.60093188820464
+    },
+    {
+      "Case": "ALL",
+      "method": "step",
+      "depth_cm": 10.0,
+      "n_profiles": 223,
+      "rmse_mv": 47.834071611354126
+    },
+    {
+      "Case": "ALL",
+      "method": "step",
+      "depth_cm": 20.0,
+      "n_profiles": 223,
+      "rmse_mv": 84.75859375032663
+    },
+    {
+      "Case": "ALL",
+      "method": "step",
+      "depth_cm": 30.0,
+      "n_profiles": 223,
+      "rmse_mv": 117.15472986347756
+    },
+    {
+      "Case": "ALL",
+      "method": "step",
+      "depth_cm": 40.0,
+      "n_profiles": 223,
+      "rmse_mv": 73.90520168421624
+    },
+    {
+      "Case": "ALL",
+      "method": "step",
+      "depth_cm": 50.0,
+      "n_profiles": 223,
+      "rmse_mv": 653.8034480140967
+    },
+    {
+      "Case": "ALL",
+      "method": "step",
+      "depth_cm": 60.0,
+      "n_profiles": 223,
+      "rmse_mv": 366.1351547420568
+    },
+    {
+      "Case": "ALL",
+      "method": "step",
+      "depth_cm": 70.0,
+      "n_profiles": 223,
+      "rmse_mv": 303.31937772422543
+    },
+    {
+      "Case": "ALL",
+      "method": "step",
+      "depth_cm": 80.0,
+      "n_profiles": 223,
+      "rmse_mv": 125.28294771540077
+    },
+    {
+      "Case": "ALL",
+      "method": "step",
+      "depth_cm": 90.0,
+      "n_profiles": 223,
+      "rmse_mv": 136.7605522310672
+    },
+    {
+      "Case": "ALL",
+      "method": "step",
+      "depth_cm": 95.0,
+      "n_profiles": 223,
+      "rmse_mv": 110.21935768167197
+    }
+  ],
+  "simulation_four_scenarios": [
+    {
+      "scenario": "logistic_w8_a800_s25",
+      "method": "sigmoid",
+      "n": 500,
+      "rmse": 1.348744922296247,
+      "coverage_percent": 92.4,
+      "coverage_mcse_pp": 1.185107590052481,
+      "median_interval_length": 3.800000000000004
+    },
+    {
+      "scenario": "logistic_w8_a800_s25",
+      "method": "step",
+      "n": 500,
+      "rmse": 3.39280978734958,
+      "coverage_percent": 88.4,
+      "coverage_mcse_pp": 1.432089382685313,
+      "median_interval_length": 10.0
+    },
+    {
+      "scenario": "logistic_w8_a800_s25",
+      "method": "bayes_step",
+      "n": 500,
+      "rmse": 3.334067416351292,
+      "coverage_percent": 87.8,
+      "coverage_mcse_pp": 1.46366662871024,
+      "median_interval_length": 9.5
+    },
+    {
+      "scenario": "step_a800_s25",
+      "method": "sigmoid",
+      "n": 500,
+      "rmse": 3.367797598436744,
+      "coverage_percent": 40.400000000000006,
+      "coverage_mcse_pp": 2.194465766422434,
+      "median_interval_length": 4.400000000000006
+    },
+    {
+      "scenario": "step_a800_s25",
+      "method": "step",
+      "n": 500,
+      "rmse": 2.943901764594672,
+      "coverage_percent": 100.0,
+      "coverage_mcse_pp": 0.0,
+      "median_interval_length": 10.0
+    },
+    {
+      "scenario": "step_a800_s25",
+      "method": "bayes_step",
+      "n": 500,
+      "rmse": 2.943901764594672,
+      "coverage_percent": 93.6,
+      "coverage_mcse_pp": 1.094568408095172,
+      "median_interval_length": 9.5
+    },
+    {
+      "scenario": "erf_w8_a800_s25",
+      "method": "sigmoid",
+      "n": 500,
+      "rmse": 1.722393385783117,
+      "coverage_percent": 92.6,
+      "coverage_mcse_pp": 1.17067501895274,
+      "median_interval_length": 4.0
+    },
+    {
+      "scenario": "erf_w8_a800_s25",
+      "method": "step",
+      "n": 500,
+      "rmse": 3.505227397880073,
+      "coverage_percent": 88.0,
+      "coverage_mcse_pp": 1.453272169966796,
+      "median_interval_length": 10.0
+    },
+    {
+      "scenario": "erf_w8_a800_s25",
+      "method": "bayes_step",
+      "n": 500,
+      "rmse": 3.451268693932138,
+      "coverage_percent": 85.39999999999999,
+      "coverage_mcse_pp": 1.579139005914299,
+      "median_interval_length": 9.5
+    },
+    {
+      "scenario": "gompertz_w8_a800_s25",
+      "method": "sigmoid",
+      "n": 500,
+      "rmse": 3.980522903429524,
+      "coverage_percent": 12.2,
+      "coverage_mcse_pp": 1.46366662871024,
+      "median_interval_length": 3.800000000000004
+    },
+    {
+      "scenario": "gompertz_w8_a800_s25",
+      "method": "step",
+      "n": 500,
+      "rmse": 4.22979021777116,
+      "coverage_percent": 76.4,
+      "coverage_mcse_pp": 1.898968140859662,
+      "median_interval_length": 10.0
+    },
+    {
+      "scenario": "gompertz_w8_a800_s25",
+      "method": "bayes_step",
+      "n": 500,
+      "rmse": 4.181929519915704,
+      "coverage_percent": 76.6,
+      "coverage_mcse_pp": 1.893377933746984,
+      "median_interval_length": 9.5
+    }
+  ],
+  "chemical_eh_differences": [
+    {
+      "Case": "3.1",
+      "analyte": "Fe",
+      "subset": "all",
+      "n_chemical": 13,
+      "n_matched": 13,
+      "difference_median": 7.399999999999999,
+      "n_shallower": 1,
+      "n_equal": 0,
+      "n_deeper": 12
+    },
+    {
+      "Case": "3.1",
+      "analyte": "Fe",
+      "subset": "two_sided_only",
+      "n_chemical": 12,
+      "n_matched": 12,
+      "difference_median": 7.699999999999999,
+      "n_shallower": 0,
+      "n_equal": 0,
+      "n_deeper": 12
+    },
+    {
+      "Case": "3.1",
+      "analyte": "Mn",
+      "subset": "all",
+      "n_chemical": 13,
+      "n_matched": 13,
+      "difference_median": 6.200000000000003,
+      "n_shallower": 2,
+      "n_equal": 1,
+      "n_deeper": 10
+    },
+    {
+      "Case": "3.1",
+      "analyte": "Mn",
+      "subset": "two_sided_only",
+      "n_chemical": 13,
+      "n_matched": 13,
+      "difference_median": 6.200000000000003,
+      "n_shallower": 2,
+      "n_equal": 1,
+      "n_deeper": 10
+    },
+    {
+      "Case": "3.1",
+      "analyte": "NH4",
+      "subset": "all",
+      "n_chemical": 13,
+      "n_matched": 13,
+      "difference_median": 9.9,
+      "n_shallower": 1,
+      "n_equal": 0,
+      "n_deeper": 12
+    },
+    {
+      "Case": "3.1",
+      "analyte": "NH4",
+      "subset": "two_sided_only",
+      "n_chemical": 13,
+      "n_matched": 13,
+      "difference_median": 9.9,
+      "n_shallower": 1,
+      "n_equal": 0,
+      "n_deeper": 12
+    },
+    {
+      "Case": "3.1",
+      "analyte": "NO3",
+      "subset": "all",
+      "n_chemical": 13,
+      "n_matched": 13,
+      "difference_median": -10.6,
+      "n_shallower": 10,
+      "n_equal": 0,
+      "n_deeper": 3
+    },
+    {
+      "Case": "3.1",
+      "analyte": "NO3",
+      "subset": "two_sided_only",
+      "n_chemical": 11,
+      "n_matched": 11,
+      "difference_median": -10.299999999999995,
+      "n_shallower": 8,
+      "n_equal": 0,
+      "n_deeper": 3
+    },
+    {
+      "Case": "3.2",
+      "analyte": "Fe",
+      "subset": "all",
+      "n_chemical": 12,
+      "n_matched": 12,
+      "difference_median": 9.8,
+      "n_shallower": 2,
+      "n_equal": 0,
+      "n_deeper": 10
+    },
+    {
+      "Case": "3.2",
+      "analyte": "Fe",
+      "subset": "two_sided_only",
+      "n_chemical": 12,
+      "n_matched": 12,
+      "difference_median": 9.8,
+      "n_shallower": 2,
+      "n_equal": 0,
+      "n_deeper": 10
+    },
+    {
+      "Case": "3.2",
+      "analyte": "Mn",
+      "subset": "all",
+      "n_chemical": 12,
+      "n_matched": 12,
+      "difference_median": 7.600000000000001,
+      "n_shallower": 2,
+      "n_equal": 0,
+      "n_deeper": 10
+    },
+    {
+      "Case": "3.2",
+      "analyte": "Mn",
+      "subset": "two_sided_only",
+      "n_chemical": 12,
+      "n_matched": 12,
+      "difference_median": 7.600000000000001,
+      "n_shallower": 2,
+      "n_equal": 0,
+      "n_deeper": 10
+    },
+    {
+      "Case": "3.2",
+      "analyte": "NH4",
+      "subset": "all",
+      "n_chemical": 12,
+      "n_matched": 12,
+      "difference_median": 8.2,
+      "n_shallower": 2,
+      "n_equal": 0,
+      "n_deeper": 10
+    },
+    {
+      "Case": "3.2",
+      "analyte": "NH4",
+      "subset": "two_sided_only",
+      "n_chemical": 12,
+      "n_matched": 12,
+      "difference_median": 8.2,
+      "n_shallower": 2,
+      "n_equal": 0,
+      "n_deeper": 10
+    },
+    {
+      "Case": "3.2",
+      "analyte": "NO3",
+      "subset": "all",
+      "n_chemical": 12,
+      "n_matched": 12,
+      "difference_median": -7.100000000000001,
+      "n_shallower": 9,
+      "n_equal": 0,
+      "n_deeper": 3
+    },
+    {
+      "Case": "3.2",
+      "analyte": "NO3",
+      "subset": "two_sided_only",
+      "n_chemical": 12,
+      "n_matched": 12,
+      "difference_median": -7.100000000000001,
+      "n_shallower": 9,
+      "n_equal": 0,
+      "n_deeper": 3
+    },
+    {
+      "Case": "3.3",
+      "analyte": "Fe",
+      "subset": "all",
+      "n_chemical": 10,
+      "n_matched": 10,
+      "difference_median": 7.299999999999997,
+      "n_shallower": 1,
+      "n_equal": 0,
+      "n_deeper": 9
+    },
+    {
+      "Case": "3.3",
+      "analyte": "Fe",
+      "subset": "two_sided_only",
+      "n_chemical": 9,
+      "n_matched": 9,
+      "difference_median": 7.299999999999997,
+      "n_shallower": 1,
+      "n_equal": 0,
+      "n_deeper": 8
+    },
+    {
+      "Case": "3.3",
+      "analyte": "Mn",
+      "subset": "all",
+      "n_chemical": 10,
+      "n_matched": 10,
+      "difference_median": 5.099999999999998,
+      "n_shallower": 1,
+      "n_equal": 0,
+      "n_deeper": 9
+    },
+    {
+      "Case": "3.3",
+      "analyte": "Mn",
+      "subset": "two_sided_only",
+      "n_chemical": 10,
+      "n_matched": 10,
+      "difference_median": 5.099999999999998,
+      "n_shallower": 1,
+      "n_equal": 0,
+      "n_deeper": 9
+    },
+    {
+      "Case": "3.3",
+      "analyte": "NH4",
+      "subset": "all",
+      "n_chemical": 10,
+      "n_matched": 10,
+      "difference_median": 2.899999999999999,
+      "n_shallower": 1,
+      "n_equal": 0,
+      "n_deeper": 9
+    },
+    {
+      "Case": "3.3",
+      "analyte": "NH4",
+      "subset": "two_sided_only",
+      "n_chemical": 10,
+      "n_matched": 10,
+      "difference_median": 2.899999999999999,
+      "n_shallower": 1,
+      "n_equal": 0,
+      "n_deeper": 9
+    },
+    {
+      "Case": "3.3",
+      "analyte": "NO3",
+      "subset": "all",
+      "n_chemical": 10,
+      "n_matched": 10,
+      "difference_median": -10.349999999999998,
+      "n_shallower": 6,
+      "n_equal": 0,
+      "n_deeper": 4
+    },
+    {
+      "Case": "3.3",
+      "analyte": "NO3",
+      "subset": "two_sided_only",
+      "n_chemical": 10,
+      "n_matched": 10,
+      "difference_median": -10.349999999999998,
+      "n_shallower": 6,
+      "n_equal": 0,
+      "n_deeper": 4
+    }
+  ]
+}

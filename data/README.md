@@ -1,19 +1,30 @@
-# Input workbook (not distributed)
+# Current-manuscript reproduction inputs
 
-The manuscript reanalyses collaborator-provided Whole3.1.xlsx. Redistribution permission has not been confirmed. Obtain the workbook from the data provider; it is not downloaded or included by this repository.
+`manuscript/` contains only the inputs and numerical reference required for the 2026-11-11 manuscript. The project owner explicitly authorized uploading these reproduction data on 2026-11-12. The observations reanalyse the sand-column experiments of Zhang and Furman (2021).
 
-Place it at data/Whole3.1.xlsx (Git-ignored), or pass --data /absolute/path/Whole3.1.xlsx. Never commit the workbook.
+| File | Contents | Role |
+| --- | --- | --- |
+| `eh_observations.csv` | 2,230 measurements; 223 complete ten-depth profiles | Model observations |
+| `chemical_observations.csv` | 233 case/time/depth rows; 922 observed concentrations | Separate chemical-profile fits |
+| `provenance.json` | Source-export and input hashes; conversion description; original workbook hash | Provenance and standard-run identification |
+| `expected_results.json` | Selected columns of five frozen manuscript table families | Numerical regression reference only |
 
-- Worksheet: Sheet2.
-- Header: the second Excel row (pandas.read_excel(..., header=1)).
-- Required column names: Case, Time, Depth, Eh, WL, No., Cycle, NO3, NH4, Fe, Mn.
-- Time: days within each condition; Depth and WL: cm below column top; Eh: original workbook mV.
-- Nitrogen concentrations: mg N/L; Fe and Mn: mg/L. Fe/Mn are elemental concentrations, not valence-specific measurements.
-- Expected depths: 10,20,30,40,50,60,70,80,90,95 cm. The soil surface is at 9 cm.
-- Keep chemical zeros and missing values distinct. Do not interpolate missing chemical depths.
-- Missing cycle labels are forward-filled only within their condition and recorded in the local audit.
-- The loader records the number of original/excluded rows and checks complete, consistent Eh profiles.
-- Chemistry primary analysis uses depths <=90 cm; 95 cm is only a sensitivity analysis. Eh fits retain all ten depths.
-- A different workbook may be analyzable but is not expected to reproduce the manuscript values.
+## Coordinates and units
 
-Without the workbook, python code/run_one_transition.py --simulation-only reproduces the six numerical scenarios and paired grid diagnostics. It does not reproduce observed-data results.
+- Cases 3.1, 3.2 and 3.3 have 77, 78 and 68 Eh profiles.
+- `Time` is recorded time in days within a case. Different cases are separate experiments.
+- `Depth` and `WL` are cm below the column top; the soil surface is at 9 cm.
+- Eh depths are 10, 20, 30, 40, 50, 60, 70, 80, 90 and 95 cm; `Eh` is mV.
+- `NO3` and `NH4` are mg N/L. `Fe` and `Mn` are filtered elemental concentrations in mg/L, not valence-specific measurements.
+- Chemical observations have 13, 12 and 10 sampling events by case and are restricted to z <= 90 cm. The 95 cm outlet chemical measurements are not local depth samples in this analysis. Eh retains 95 cm.
+- Empty chemical cells are missing. Zero is a valid observation; 373 zero concentrations are retained. Each analyte is fitted only with its own available depths; no interpolation is introduced.
+
+## Preparation and provenance
+
+The Eh CSV is a byte-identical copy of the established `B2_Eh_observations.csv` export. Metadata such as cycle identifiers is retained; it does not enter individual-profile model estimation.
+
+The chemical CSV pivots the observed `B3_chemical_observations.csv` export from long analyte format to `Case,Time,Depth,NO3,NH4,Fe,Mn`. It introduces neither fitted concentrations nor interpolated observations. Source-export hashes and the original `Whole3.1.xlsx` hash are recorded in `provenance.json`; the original workbook and unrelated experiments are not required at runtime.
+
+`expected_results.json` freezes current center diagnostics, region/depth RMSE, four-scenario metrics and chemical/Eh position differences. It is read only after estimates and predictions have been computed, to detect unintended changes. No reference center or reference prediction is used as model input.
+
+Run `python code/run_manuscript.py --data-dir /path/to/csv_directory` to use another copy of the two observation files. A complete standard reproduction requires their recorded hashes and the canonical configuration. Modified inputs/settings are recorded as noncanonical runs.

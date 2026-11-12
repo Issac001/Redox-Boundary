@@ -1,10 +1,25 @@
-# Collaborator data and generated outputs stay local.
+# Only the owner-authorized current-manuscript reproduction inputs are published.
 /data/*
 !/data/README.md
+!/data/manuscript/
+/data/manuscript/*
+!/data/manuscript/eh_observations.csv
+!/data/manuscript/chemical_observations.csv
+!/data/manuscript/provenance.json
+!/data/manuscript/expected_results.json
 /results*/
 /figures*/
 /validation/
 /.venv/
+.venv*/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.mplconfig/
+htmlcov/
+.coverage*
 __pycache__/
 *.py[cod]
 .DS_Store
@@ -20,3 +35,13 @@ __pycache__/
 
 # Private numerical baselines are used only for local verification.
 /reference/
+
+# Previous input exports and generated manuscript artifacts remain local.
+/reports*/
+/实验结果报告.html
+/*.docx
+/*.md
+!/README.md
+/*.html
+/*_assets/
+/md_revision_*/

@@ -1,0 +1,33 @@
+{
+  "scope": "Inputs and numerical reference for the 2026-11-11 manuscript revision",
+  "original_study": "Zhang and Furman (2021), sand-column groundwater fluctuation experiments",
+  "redistribution": "Project owner explicitly authorized publishing these reproduction inputs on 2026-11-12.",
+  "input_files": {
+    "eh_observations.csv": {
+      "sha256": "3d3facf20f7abce0c6189f0872c7f0fd5ad3ce3557b786e178dbb3aab688f133",
+      "rows": 2230
+    },
+    "chemical_observations.csv": {
+      "sha256": "44a5f5bf6a7039a81202cb43e0ff52fa9b3c95559e74e691c02711b5db18ee96",
+      "rows": 233
+    }
+  },
+  "chemical_conversion": {
+    "source_export": "B3_chemical_observations.csv",
+    "source_sha256": "f62582b73dbf499d5568d0c8ab54c7782eb38522f95975e259766802e8a4e7f4",
+    "operation": "Pivot observed analyte values to one row per case/time/depth; preserve zeros and missing values; no interpolation or concentration transformation.",
+    "source_records": 922,
+    "zero_concentrations": 373,
+    "depth_range_cm": [
+      20.0,
+      90.0
+    ]
+  },
+  "original_workbook_sha256": "c0ff4734e4c3b6096ba88ac9a7b558415df39bfb313bb94820823dcfd3eef1e5",
+  "expected_results": {
+    "file": "expected_results.json",
+    "sha256": "46072ace29609689fd7502a52b06805e8641b679f562bcbec2c80d58bbcef733",
+    "role": "Regression reference only; never used to estimate parameters or construct predictions."
+  },
+  "configuration_sha256": "0d8d03429045bc29af98d74e0a38af064898fc78f5221b642eedb4c2764073e0"
+}
